@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1 # may be actions/checkout@v2 now 
       - name: Login to DockerHub Registry #DOCKERHUB_TOKEN: dckr_pat_RNV6YEoP5707t1hwaupKpM9jfks , DOCKERHUB_USERNAME : ramyajayaraman
-        run: echo ${{ secrets.DOCKERHUB_TOKEN }} |  docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+        run: echo ${{ secrets.DOCKERHUB_TOKEN }} |  docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-BharathAmmu
       - name: Get the version
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
