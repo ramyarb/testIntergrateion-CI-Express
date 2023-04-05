@@ -22,11 +22,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1 # may be actions/checkout@v2 now 
       - name: Login to DockerHub Registry #DOCKERHUB_TOKEN: dckr_pat_RNV6YEoP5707t1hwaupKpM9jfks , DOCKERHUB_USERNAME : ramyajayaraman
-        run: echo ${{ secrets.DOCKERHUB_TOKEN }} # |  docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: echo ${{ secrets.DOCKERHUB_TOKEN }} |  docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       - name: Get the version
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
       - name: Build the tagged Docker image
-        run: docker build -t jrwtango/c2express002 .
+        run: docker build -t ramyarb/testIntergrateion-CI-Express
+ .
       - name: Push the tagged Docker image
-        run: docker push jrwtango/c2express002
+        run: docker push ramyarb/testIntergrateion-CI-Express
