@@ -28,6 +28,8 @@ jobs:
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
       - name: Build the tagged Docker image
         run: docker build -t jrwtango/c2express002 .
+      - name: Login to DockerHub Registry #DOCKERHUB_TOKEN: dckr_pat_RNV6YEoP5707t1hwaupKpM9jfks , DOCKERHUB_USERNAME : ramyajayaraman
+        run: echo docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password$ {{ secrets.DOCKERHUB_PASSWORD }}docker.io
       - name: Push the tagged Docker image
         run: docker push jrwtango/c2express002:latest
 
